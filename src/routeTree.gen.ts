@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WwtpRouteImport } from './routes/wwtp'
+import { Route as DataCenterRouteImport } from './routes/data-center'
+import { Route as ChillerPlantRouteImport } from './routes/chiller-plant'
+import { Route as BaggageRouteImport } from './routes/baggage'
+import { Route as AirfieldLightingRouteImport } from './routes/airfield-lighting'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WwtpRoute = WwtpRouteImport.update({
+  id: '/wwtp',
+  path: '/wwtp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataCenterRoute = DataCenterRouteImport.update({
+  id: '/data-center',
+  path: '/data-center',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChillerPlantRoute = ChillerPlantRouteImport.update({
+  id: '/chiller-plant',
+  path: '/chiller-plant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BaggageRoute = BaggageRouteImport.update({
+  id: '/baggage',
+  path: '/baggage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirfieldLightingRoute = AirfieldLightingRouteImport.update({
+  id: '/airfield-lighting',
+  path: '/airfield-lighting',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/airfield-lighting': typeof AirfieldLightingRoute
+  '/baggage': typeof BaggageRoute
+  '/chiller-plant': typeof ChillerPlantRoute
+  '/data-center': typeof DataCenterRoute
+  '/wwtp': typeof WwtpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/airfield-lighting': typeof AirfieldLightingRoute
+  '/baggage': typeof BaggageRoute
+  '/chiller-plant': typeof ChillerPlantRoute
+  '/data-center': typeof DataCenterRoute
+  '/wwtp': typeof WwtpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/airfield-lighting': typeof AirfieldLightingRoute
+  '/baggage': typeof BaggageRoute
+  '/chiller-plant': typeof ChillerPlantRoute
+  '/data-center': typeof DataCenterRoute
+  '/wwtp': typeof WwtpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/airfield-lighting'
+    | '/baggage'
+    | '/chiller-plant'
+    | '/data-center'
+    | '/wwtp'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/airfield-lighting'
+    | '/baggage'
+    | '/chiller-plant'
+    | '/data-center'
+    | '/wwtp'
+  id:
+    | '__root__'
+    | '/'
+    | '/airfield-lighting'
+    | '/baggage'
+    | '/chiller-plant'
+    | '/data-center'
+    | '/wwtp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AirfieldLightingRoute: typeof AirfieldLightingRoute
+  BaggageRoute: typeof BaggageRoute
+  ChillerPlantRoute: typeof ChillerPlantRoute
+  DataCenterRoute: typeof DataCenterRoute
+  WwtpRoute: typeof WwtpRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wwtp': {
+      id: '/wwtp'
+      path: '/wwtp'
+      fullPath: '/wwtp'
+      preLoaderRoute: typeof WwtpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-center': {
+      id: '/data-center'
+      path: '/data-center'
+      fullPath: '/data-center'
+      preLoaderRoute: typeof DataCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chiller-plant': {
+      id: '/chiller-plant'
+      path: '/chiller-plant'
+      fullPath: '/chiller-plant'
+      preLoaderRoute: typeof ChillerPlantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/baggage': {
+      id: '/baggage'
+      path: '/baggage'
+      fullPath: '/baggage'
+      preLoaderRoute: typeof BaggageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airfield-lighting': {
+      id: '/airfield-lighting'
+      path: '/airfield-lighting'
+      fullPath: '/airfield-lighting'
+      preLoaderRoute: typeof AirfieldLightingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +157,22 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AirfieldLightingRoute: AirfieldLightingRoute,
+  BaggageRoute: BaggageRoute,
+  ChillerPlantRoute: ChillerPlantRoute,
+  DataCenterRoute: DataCenterRoute,
+  WwtpRoute: WwtpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
