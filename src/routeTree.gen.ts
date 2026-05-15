@@ -10,10 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WwtpRouteImport } from './routes/wwtp'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as SystemsRouteImport } from './routes/systems'
+import { Route as ShiftHandoverRouteImport } from './routes/shift-handover'
+import { Route as PredictiveRouteImport } from './routes/predictive'
+import { Route as FireSafetyRouteImport } from './routes/fire-safety'
+import { Route as FacilityRouteImport } from './routes/facility'
+import { Route as EnergyRouteImport } from './routes/energy'
+import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as DataCenterRouteImport } from './routes/data-center'
+import { Route as DailyOperationsRouteImport } from './routes/daily-operations'
+import { Route as ControlRoomRouteImport } from './routes/control-room'
 import { Route as ChillerPlantRouteImport } from './routes/chiller-plant'
 import { Route as BaggageRouteImport } from './routes/baggage'
+import { Route as ArchitectureRouteImport } from './routes/architecture'
+import { Route as AlarmsRouteImport } from './routes/alarms'
 import { Route as AirfieldLightingRouteImport } from './routes/airfield-lighting'
+import { Route as AiAnalyticsRouteImport } from './routes/ai-analytics'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WwtpRoute = WwtpRouteImport.update({
@@ -21,9 +35,64 @@ const WwtpRoute = WwtpRouteImport.update({
   path: '/wwtp',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SystemsRoute = SystemsRouteImport.update({
+  id: '/systems',
+  path: '/systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShiftHandoverRoute = ShiftHandoverRouteImport.update({
+  id: '/shift-handover',
+  path: '/shift-handover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictiveRoute = PredictiveRouteImport.update({
+  id: '/predictive',
+  path: '/predictive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FireSafetyRoute = FireSafetyRouteImport.update({
+  id: '/fire-safety',
+  path: '/fire-safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilityRoute = FacilityRouteImport.update({
+  id: '/facility',
+  path: '/facility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnergyRoute = EnergyRouteImport.update({
+  id: '/energy',
+  path: '/energy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergencyRoute = EmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DataCenterRoute = DataCenterRouteImport.update({
   id: '/data-center',
   path: '/data-center',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DailyOperationsRoute = DailyOperationsRouteImport.update({
+  id: '/daily-operations',
+  path: '/daily-operations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ControlRoomRoute = ControlRoomRouteImport.update({
+  id: '/control-room',
+  path: '/control-room',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChillerPlantRoute = ChillerPlantRouteImport.update({
@@ -36,9 +105,24 @@ const BaggageRoute = BaggageRouteImport.update({
   path: '/baggage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArchitectureRoute = ArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlarmsRoute = AlarmsRouteImport.update({
+  id: '/alarms',
+  path: '/alarms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AirfieldLightingRoute = AirfieldLightingRouteImport.update({
   id: '/airfield-lighting',
   path: '/airfield-lighting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAnalyticsRoute = AiAnalyticsRouteImport.update({
+  id: '/ai-analytics',
+  path: '/ai-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,62 +133,160 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-analytics': typeof AiAnalyticsRoute
   '/airfield-lighting': typeof AirfieldLightingRoute
+  '/alarms': typeof AlarmsRoute
+  '/architecture': typeof ArchitectureRoute
   '/baggage': typeof BaggageRoute
   '/chiller-plant': typeof ChillerPlantRoute
+  '/control-room': typeof ControlRoomRoute
+  '/daily-operations': typeof DailyOperationsRoute
   '/data-center': typeof DataCenterRoute
+  '/emergency': typeof EmergencyRoute
+  '/energy': typeof EnergyRoute
+  '/facility': typeof FacilityRoute
+  '/fire-safety': typeof FireSafetyRoute
+  '/predictive': typeof PredictiveRoute
+  '/shift-handover': typeof ShiftHandoverRoute
+  '/systems': typeof SystemsRoute
+  '/team': typeof TeamRoute
+  '/training': typeof TrainingRoute
   '/wwtp': typeof WwtpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-analytics': typeof AiAnalyticsRoute
   '/airfield-lighting': typeof AirfieldLightingRoute
+  '/alarms': typeof AlarmsRoute
+  '/architecture': typeof ArchitectureRoute
   '/baggage': typeof BaggageRoute
   '/chiller-plant': typeof ChillerPlantRoute
+  '/control-room': typeof ControlRoomRoute
+  '/daily-operations': typeof DailyOperationsRoute
   '/data-center': typeof DataCenterRoute
+  '/emergency': typeof EmergencyRoute
+  '/energy': typeof EnergyRoute
+  '/facility': typeof FacilityRoute
+  '/fire-safety': typeof FireSafetyRoute
+  '/predictive': typeof PredictiveRoute
+  '/shift-handover': typeof ShiftHandoverRoute
+  '/systems': typeof SystemsRoute
+  '/team': typeof TeamRoute
+  '/training': typeof TrainingRoute
   '/wwtp': typeof WwtpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-analytics': typeof AiAnalyticsRoute
   '/airfield-lighting': typeof AirfieldLightingRoute
+  '/alarms': typeof AlarmsRoute
+  '/architecture': typeof ArchitectureRoute
   '/baggage': typeof BaggageRoute
   '/chiller-plant': typeof ChillerPlantRoute
+  '/control-room': typeof ControlRoomRoute
+  '/daily-operations': typeof DailyOperationsRoute
   '/data-center': typeof DataCenterRoute
+  '/emergency': typeof EmergencyRoute
+  '/energy': typeof EnergyRoute
+  '/facility': typeof FacilityRoute
+  '/fire-safety': typeof FireSafetyRoute
+  '/predictive': typeof PredictiveRoute
+  '/shift-handover': typeof ShiftHandoverRoute
+  '/systems': typeof SystemsRoute
+  '/team': typeof TeamRoute
+  '/training': typeof TrainingRoute
   '/wwtp': typeof WwtpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-analytics'
     | '/airfield-lighting'
+    | '/alarms'
+    | '/architecture'
     | '/baggage'
     | '/chiller-plant'
+    | '/control-room'
+    | '/daily-operations'
     | '/data-center'
+    | '/emergency'
+    | '/energy'
+    | '/facility'
+    | '/fire-safety'
+    | '/predictive'
+    | '/shift-handover'
+    | '/systems'
+    | '/team'
+    | '/training'
     | '/wwtp'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-analytics'
     | '/airfield-lighting'
+    | '/alarms'
+    | '/architecture'
     | '/baggage'
     | '/chiller-plant'
+    | '/control-room'
+    | '/daily-operations'
     | '/data-center'
+    | '/emergency'
+    | '/energy'
+    | '/facility'
+    | '/fire-safety'
+    | '/predictive'
+    | '/shift-handover'
+    | '/systems'
+    | '/team'
+    | '/training'
     | '/wwtp'
   id:
     | '__root__'
     | '/'
+    | '/ai-analytics'
     | '/airfield-lighting'
+    | '/alarms'
+    | '/architecture'
     | '/baggage'
     | '/chiller-plant'
+    | '/control-room'
+    | '/daily-operations'
     | '/data-center'
+    | '/emergency'
+    | '/energy'
+    | '/facility'
+    | '/fire-safety'
+    | '/predictive'
+    | '/shift-handover'
+    | '/systems'
+    | '/team'
+    | '/training'
     | '/wwtp'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiAnalyticsRoute: typeof AiAnalyticsRoute
   AirfieldLightingRoute: typeof AirfieldLightingRoute
+  AlarmsRoute: typeof AlarmsRoute
+  ArchitectureRoute: typeof ArchitectureRoute
   BaggageRoute: typeof BaggageRoute
   ChillerPlantRoute: typeof ChillerPlantRoute
+  ControlRoomRoute: typeof ControlRoomRoute
+  DailyOperationsRoute: typeof DailyOperationsRoute
   DataCenterRoute: typeof DataCenterRoute
+  EmergencyRoute: typeof EmergencyRoute
+  EnergyRoute: typeof EnergyRoute
+  FacilityRoute: typeof FacilityRoute
+  FireSafetyRoute: typeof FireSafetyRoute
+  PredictiveRoute: typeof PredictiveRoute
+  ShiftHandoverRoute: typeof ShiftHandoverRoute
+  SystemsRoute: typeof SystemsRoute
+  TeamRoute: typeof TeamRoute
+  TrainingRoute: typeof TrainingRoute
   WwtpRoute: typeof WwtpRoute
 }
 
@@ -117,11 +299,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WwtpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/systems': {
+      id: '/systems'
+      path: '/systems'
+      fullPath: '/systems'
+      preLoaderRoute: typeof SystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shift-handover': {
+      id: '/shift-handover'
+      path: '/shift-handover'
+      fullPath: '/shift-handover'
+      preLoaderRoute: typeof ShiftHandoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predictive': {
+      id: '/predictive'
+      path: '/predictive'
+      fullPath: '/predictive'
+      preLoaderRoute: typeof PredictiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fire-safety': {
+      id: '/fire-safety'
+      path: '/fire-safety'
+      fullPath: '/fire-safety'
+      preLoaderRoute: typeof FireSafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facility': {
+      id: '/facility'
+      path: '/facility'
+      fullPath: '/facility'
+      preLoaderRoute: typeof FacilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/energy': {
+      id: '/energy'
+      path: '/energy'
+      fullPath: '/energy'
+      preLoaderRoute: typeof EnergyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergency': {
+      id: '/emergency'
+      path: '/emergency'
+      fullPath: '/emergency'
+      preLoaderRoute: typeof EmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/data-center': {
       id: '/data-center'
       path: '/data-center'
       fullPath: '/data-center'
       preLoaderRoute: typeof DataCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/daily-operations': {
+      id: '/daily-operations'
+      path: '/daily-operations'
+      fullPath: '/daily-operations'
+      preLoaderRoute: typeof DailyOperationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/control-room': {
+      id: '/control-room'
+      path: '/control-room'
+      fullPath: '/control-room'
+      preLoaderRoute: typeof ControlRoomRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chiller-plant': {
@@ -138,11 +397,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BaggageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/architecture': {
+      id: '/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alarms': {
+      id: '/alarms'
+      path: '/alarms'
+      fullPath: '/alarms'
+      preLoaderRoute: typeof AlarmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/airfield-lighting': {
       id: '/airfield-lighting'
       path: '/airfield-lighting'
       fullPath: '/airfield-lighting'
       preLoaderRoute: typeof AirfieldLightingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-analytics': {
+      id: '/ai-analytics'
+      path: '/ai-analytics'
+      fullPath: '/ai-analytics'
+      preLoaderRoute: typeof AiAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -157,10 +437,24 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiAnalyticsRoute: AiAnalyticsRoute,
   AirfieldLightingRoute: AirfieldLightingRoute,
+  AlarmsRoute: AlarmsRoute,
+  ArchitectureRoute: ArchitectureRoute,
   BaggageRoute: BaggageRoute,
   ChillerPlantRoute: ChillerPlantRoute,
+  ControlRoomRoute: ControlRoomRoute,
+  DailyOperationsRoute: DailyOperationsRoute,
   DataCenterRoute: DataCenterRoute,
+  EmergencyRoute: EmergencyRoute,
+  EnergyRoute: EnergyRoute,
+  FacilityRoute: FacilityRoute,
+  FireSafetyRoute: FireSafetyRoute,
+  PredictiveRoute: PredictiveRoute,
+  ShiftHandoverRoute: ShiftHandoverRoute,
+  SystemsRoute: SystemsRoute,
+  TeamRoute: TeamRoute,
+  TrainingRoute: TrainingRoute,
   WwtpRoute: WwtpRoute,
 }
 export const routeTree = rootRouteImport
