@@ -74,7 +74,7 @@ export function PageHeader({ eyebrow, title, description, children }: {
   );
 }
 
-export function Gauge({ value, max = 100, label, unit, status = "ok" }: {
+export function GaugeRing({ value, max = 100, label, unit, status = "ok" }: {
   value: number; max?: number; label: string; unit?: string; status?: "ok" | "warn" | "crit";
 }) {
   const pct = Math.max(0, Math.min(1, value / max));
