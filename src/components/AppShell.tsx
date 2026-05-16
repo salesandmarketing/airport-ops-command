@@ -153,6 +153,9 @@ export function AppShell() {
         </header>
 
         <main className="flex-1 min-w-0">
+            <div className="w-full bg-yellow-950/60 border-b border-yellow-500/40 text-yellow-400 text-center py-1.5 text-[11px] mono tracking-widest">
+            ⚠ DEMO / TRAINING PORTAL — SIMULATED DATA ONLY — NOT CONNECTED TO LIVE SYSTEMS
+          </div>
           <Outlet />
         </main>
 
